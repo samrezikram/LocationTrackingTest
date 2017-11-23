@@ -7,6 +7,16 @@ package com.crescentcatcher.locationtracking;
 public class Location {
 
     private int id;
+
+    public String getRoutename() {
+        return routename;
+    }
+
+    public void setRoutename(String routename) {
+        this.routename = routename;
+    }
+
+    private String routename;
     private String routepoints1;
     private String routepoints2;
 
