@@ -19,10 +19,13 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.util.Xml;
+import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.brouding.blockbutton.BlockButton;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -42,6 +45,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.location.LocationServices;
+import com.kyleduo.switchbutton.SwitchButton;
 
 
 import org.xmlpull.v1.XmlSerializer;
@@ -92,12 +96,16 @@ public class MainActivity extends Activity implements
     private LocationRequest mLocationRequest;
     private List<Address> addresses;
 
+    LocationDBHelper locDBhelper;
+
     public Context context;
 
     private GoogleLocationService googleLocationService;
 
     private ArrayList<LatLng> points; //added
     Polyline line; //added
+
+    SwitchButton toggelGPS;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,6 +120,25 @@ public class MainActivity extends Activity implements
         createLocationRequest();
 
         setContentView(R.layout.activity_main);
+        BlockButton btnSaveRoute = (BlockButton) findViewById(R.id.btn_save_route);
+        btnSaveRoute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //btnShowProgressDialog
+            }
+        });
+
+        this.toggelGPS = (SwitchButton) findViewById(R.id.sb_gps);
+        this.toggelGPS.setChecked(true);
+        this.toggelGPS.setEnabled(true);
+        this.toggelGPS.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(toggelGPS.isChecked()){
+
+                }
+            }
+        });
 
         this.context = MainActivity.this;
         try {
@@ -133,6 +160,7 @@ public class MainActivity extends Activity implements
                     R.id.map));
             mapFragment.getMapAsync(this);
 
+            this.locDBhelper = new LocationDBHelper(this.context);
             createLocationRequest();
             startService(new Intent(context, LocationService.class));
 
@@ -166,7 +194,7 @@ public class MainActivity extends Activity implements
                                 .width(10)
                                 .color(R.color.colorMapLine)
                                 .geodesic(false)
-                                .zIndex(3));
+                                .zIndex(200));
                         route.setPoints(points);
 
                         writeToFile("Lati: " + location.getLatitude() + " , Longi: " + location.getLongitude(), context);
