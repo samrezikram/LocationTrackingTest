@@ -39,31 +39,47 @@
             android:text="Route: "/>
 
         <com.brouding.blockbutton.BlockButton
-            app:pushDepthDp="2"
+            app:pushDepthDp="6"
             app:buttonColor="@color/colorButtonHighlighted"
             app:buttonGapColor="@color/colorButtonGapHighlighted"
-            app:buttonDisabledColor="#999999"
-            app:buttonDisabledGapColor="@color/colorButtonDisabledGapColor"
             android:id="@+id/btn_save_route"
             android:layout_width="wrap_content"
-            android:paddingBottom="4dp"
-            android:paddingTop="4dp"
-            android:layout_height="34dp"
-            android:layout_gravity="center_vertical|right"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:text="SAVE"
                 android:textColor="#ffffff"
-                android:textSize="13sp"
-                android:text="Save" />
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+        </com.brouding.blockbutton.BlockButton>
+
+        <com.brouding.blockbutton.BlockButton
+            app:pushDepthDp="6"
+            app:buttonColor="@color/colorButtonHighlighted"
+            app:buttonGapColor="@color/colorButtonGapHighlighted"
+            android:id="@+id/btn_showList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:text="Routes"
+                android:textColor="#ffffff"
+                android:textSize="17dp"
+                android:textStyle="bold" />
 
         </com.brouding.blockbutton.BlockButton>
 

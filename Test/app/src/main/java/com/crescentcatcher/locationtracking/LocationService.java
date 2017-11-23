@@ -36,26 +36,25 @@ public class LocationService extends Service {
             @Override
             public void canReceiveLocationUpdates() {
 
+                Timber.e("LocationService Can recieve location update");
             }
 
             @Override
             public void cannotReceiveLocationUpdates() {
+                Timber.e("LocationService Cannot recieve location update");
+
             }
 
             //update location to our servers for tracking purpose
             @Override
             public void updateLocation(Location location) {
                 if (location != null ) {
-                    Timber.e("updated location %1$s %2$s", location.getLatitude(), location.getLongitude());
+                    Timber.e("LocationService updated location %1$s %2$s", location.getLatitude(), location.getLongitude());
 
                 }
             }
 
-            @Override
-            public void updateLocationName(String localityName, Location location) {
 
-                googleLocationService.stopLocationUpdates();
-            }
         });
         googleLocationService.startUpdates();
     }

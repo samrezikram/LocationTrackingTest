@@ -2,10 +2,12 @@ package com.crescentcatcher.locationtracking;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.GpsStatus;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -54,11 +56,9 @@ public class GoogleLocationService {
         mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-
     }
 
     private class GoogleServicesCallbacks implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
-
         @Override
         public void onConnected(Bundle bundle) {
             startLocationUpdates();
@@ -82,9 +82,9 @@ public class GoogleLocationService {
         @Override
         public void onLocationChanged(Location location) {
             if (location.hasAccuracy()) {
-               // if (location.getAccuracy() < 50) {
+                if (location.getAccuracy() < 50) {
                     locationUpdateListener.updateLocation(location);
-                //}
+                }
             }
         }
     }
@@ -114,7 +114,6 @@ public class GoogleLocationService {
             return false;
         }
     }
-
 
     public void startUpdates() {
     /*

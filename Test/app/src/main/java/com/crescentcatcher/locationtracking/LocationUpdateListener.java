@@ -1,5 +1,6 @@
 package com.crescentcatcher.locationtracking;
 
+import android.location.GpsStatus;
 import android.location.Location;
 
 /**
@@ -24,10 +25,5 @@ public interface LocationUpdateListener {
      */
     void updateLocation(Location location);
 
-    /**
-     * Called when GoogleLocationServices detects that the device has moved to a new location.
-     * @param localityName The name of the locality (somewhere below street but above area).
-     */
-    void updateLocationName(String localityName, Location location);
 }
 
