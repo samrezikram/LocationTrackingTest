@@ -1,6 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
 
@@ -8,7 +10,62 @@
         android:id="@+id/container_topLinView"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_height="44dp">
+        android:layout_height="50dp">
+
+        <TextView
+            style="@style/StyleTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:paddingLeft="12dp"
+            android:text="GPS: "/>
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/sb_gps"
+            style="@style/SwitchButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:checked="true"
+            app:kswTintColor="#0E5AA4"/>
+
+
+        <TextView
+            style="@style/StyleTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:paddingLeft="30dp"
+            android:text="Route: "/>
+
+        <com.brouding.blockbutton.BlockButton
+            app:pushDepthDp="2"
+            app:buttonColor="@color/colorButtonHighlighted"
+            app:buttonGapColor="@color/colorButtonGapHighlighted"
+            app:buttonDisabledColor="#999999"
+            app:buttonDisabledGapColor="@color/colorButtonDisabledGapColor"
+            android:id="@+id/btn_save_route"
+            android:layout_width="wrap_content"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:layout_height="34dp"
+            android:layout_gravity="center_vertical|right"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:textSize="13sp"
+                android:text="Save" />
+
+        </com.brouding.blockbutton.BlockButton>
 
     </LinearLayout>
 
@@ -17,7 +74,7 @@
         android:layout_below="@+id/container_topLinView"
         android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"/>
 
 
 </RelativeLayout>

@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorMapLine">#FF2EB3A3</color>
 
+    <color name="colorSwitch">#0E5AA4</color>
+
+    <color name="colorButtonHighlighted">#0E5AA4</color>
+    <color name="colorButtonGapHighlighted">#022e59</color>
+    <color name="colorButtonDisabledGapColor">#91aac2</color>
+
 </resources>
