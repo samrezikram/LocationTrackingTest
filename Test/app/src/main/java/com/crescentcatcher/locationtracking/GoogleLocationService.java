@@ -126,11 +126,11 @@ public class GoogleLocationService {
                 startLocationUpdates();
             } else {
                 locationUpdateListener.cannotReceiveLocationUpdates();
-                Toast.makeText(activity, "Unable to get your location.Please turn on your device Gps", Toast.LENGTH_LONG).show();
+                //Toast.makeText(activity, "Unable to get your location.Please turn on your device Gps", Toast.LENGTH_LONG).show();
             }
         } else {
             locationUpdateListener.cannotReceiveLocationUpdates();
-            Toast.makeText(activity, "Google play service not available", Toast.LENGTH_LONG).show();
+            //Toast.makeText(activity, "Google play service not available", Toast.LENGTH_LONG).show();
         }
     }
 

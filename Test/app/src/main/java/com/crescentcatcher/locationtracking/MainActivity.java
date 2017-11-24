@@ -5,18 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.CompoundButton;
+
 
 import android.location.Address;
 import android.location.Location;
-import android.os.Handler;
-import android.os.Message;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 
-import com.brouding.blockbutton.BlockButton;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -30,7 +29,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.kyleduo.switchbutton.SwitchButton;
 
 
 import java.io.BufferedReader;
@@ -43,8 +41,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import timber.log.Timber;
-import android.widget.CompoundButton;
-
+import com.brouding.blockbutton.BlockButton;
+import com.kyleduo.switchbutton.SwitchButton;
 
 
 public class MainActivity extends Activity implements
@@ -98,7 +96,6 @@ public class MainActivity extends Activity implements
         }
 
         configureUI();
-
 
         this.context = MainActivity.this;
         try {
@@ -261,12 +258,6 @@ public class MainActivity extends Activity implements
         }
     }
 
-//    protected void createLocationRequest() {
-//        mLocationRequest = new LocationRequest();
-//        mLocationRequest.setInterval(INTERVAL);
-//        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
-//        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-//    }
 //    <------------------------>
     private boolean isGooglePlayServicesAvailable() {
         int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);

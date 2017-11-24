@@ -80,8 +80,6 @@ public class RoutesAdapter extends ArrayAdapter<Location> {
             convertView = inflater.inflate(R.layout.list_routes, parent, false);
             viewHolder.txtRouteName = (TextView) convertView.findViewById(R.id.routes_name);
 
-
-
             result=convertView;
 
             convertView.setTag(viewHolder);
